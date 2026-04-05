@@ -20,7 +20,7 @@ class PlayerNotifier extends StateNotifier<AsyncValue<Player?>> {
     try {
       final player = await _apiService.fetchPlayer(name);
       state = AsyncValue.data(player);
-    } catch (e, st) {
+    } catch (e) {
       // Fall back to a local guest player on error.
       state = AsyncValue.data(
         Player(id: 'guest', name: name),

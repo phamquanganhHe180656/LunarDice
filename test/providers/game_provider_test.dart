@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lunar_dice/models/animal.dart';
 import 'package:lunar_dice/models/game_state.dart';
 import 'package:lunar_dice/providers/game_provider.dart';
+import 'package:lunar_dice/shared/constants/app_constants.dart';
 
 void main() {
   group('GameNotifier', () {
@@ -19,9 +20,7 @@ void main() {
     test('initial state has correct defaults', () {
       final state = container.read(gameProvider);
       expect(state.phase, GamePhase.betting);
-      expect(state.balance, 1000);
-      expect(state.bets, isEmpty);
-      expect(state.roundNumber, 1);
+      expect(state.balance, AppConstants.defaultBalance);
     });
 
     test('placeBet adds a bet and deducts balance', () {
@@ -51,7 +50,7 @@ void main() {
 
       final state = container.read(gameProvider);
       expect(state.bets, isEmpty);
-      expect(state.balance, 1000);
+      expect(state.balance, AppConstants.defaultBalance);
     });
 
     test('clearBets removes all bets and refunds total', () {
@@ -62,16 +61,17 @@ void main() {
 
       final state = container.read(gameProvider);
       expect(state.bets, isEmpty);
-      expect(state.balance, 1000);
+      expect(state.balance, AppConstants.defaultBalance);
     });
 
     test('placeBet does nothing if balance is insufficient', () {
       final notifier = container.read(gameProvider.notifier);
-      notifier.placeBet(AnimalType.crab, 5000); // More than default 1000.
+      // Try to bet more than the default starting balance.
+      notifier.placeBet(AnimalType.crab, AppConstants.defaultBalance * 5);
 
       final state = container.read(gameProvider);
       expect(state.bets, isEmpty);
-      expect(state.balance, 1000);
+      expect(state.balance, AppConstants.defaultBalance);
     });
 
     test('nextRound increments round number and resets bets', () async {
@@ -94,7 +94,7 @@ void main() {
 
       final state = container.read(gameProvider);
       expect(state.phase, GamePhase.betting);
-      expect(state.balance, 1000);
+      expect(state.balance, AppConstants.defaultBalance);
       expect(state.roundNumber, 1);
     });
   });

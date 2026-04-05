@@ -1,9 +1,12 @@
+/// Default balance for new players.
+const int kDefaultBalance = 1000;
+
 /// Backend player model (mirrors the Flutter-side model).
 class Player {
   const Player({
     required this.id,
     required this.name,
-    this.balance = 1000,
+    this.balance = kDefaultBalance,
     this.totalWins = 0,
     this.totalLosses = 0,
     this.gamesPlayed = 0,
@@ -47,7 +50,7 @@ class Player {
     return Player(
       id: json['id'] as String,
       name: json['name'] as String,
-      balance: json['balance'] as int? ?? 1000,
+      balance: json['balance'] as int? ?? kDefaultBalance,
       totalWins: json['totalWins'] as int? ?? 0,
       totalLosses: json['totalLosses'] as int? ?? 0,
       gamesPlayed: json['gamesPlayed'] as int? ?? 0,

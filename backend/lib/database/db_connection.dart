@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:mysql_client/mysql_client.dart';
+import '../models/player.dart' show kDefaultBalance;
 
 /// Manages a single MySQL connection used by all handlers.
 class DbConnection {
@@ -45,7 +46,7 @@ class DbConnection {
       CREATE TABLE IF NOT EXISTS players (
         id         VARCHAR(36)  NOT NULL PRIMARY KEY,
         name       VARCHAR(100) NOT NULL UNIQUE,
-        balance    INT          NOT NULL DEFAULT 1000,
+        balance    INT          NOT NULL DEFAULT $kDefaultBalance,
         total_wins INT          NOT NULL DEFAULT 0,
         total_losses INT        NOT NULL DEFAULT 0,
         games_played INT        NOT NULL DEFAULT 0,

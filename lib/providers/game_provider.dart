@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/animal.dart';
 import '../models/bet.dart';
 import '../models/game_state.dart';
+import '../shared/constants/app_constants.dart';
 
 /// Provider for the main game state.
 final gameProvider =
@@ -67,8 +68,8 @@ class GameNotifier extends StateNotifier<GameState> {
     // Transition to rolling phase.
     state = state.copyWith(phase: GamePhase.rolling, diceResults: []);
 
-    // Simulate a short rolling animation delay.
-    await Future.delayed(const Duration(milliseconds: 1200));
+    await Future.delayed(
+        Duration(milliseconds: AppConstants.diceRollDurationMs));
 
     final results = List.generate(
       3,

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import '../models/player.dart';
+import '../shared/constants/app_constants.dart';
 
 /// Provider for [ApiService].
 final apiServiceProvider = Provider<ApiService>((ref) => ApiService());
@@ -43,7 +44,7 @@ class ApiService {
     final response = await http.post(
       uri,
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'name': name, 'balance': 1000}),
+      body: jsonEncode({'name': name, 'balance': AppConstants.defaultBalance}),
     );
 
     if (response.statusCode == 201) {

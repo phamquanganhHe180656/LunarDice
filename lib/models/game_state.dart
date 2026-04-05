@@ -1,5 +1,6 @@
 import 'animal.dart';
 import 'bet.dart';
+import '../shared/constants/app_constants.dart';
 
 /// The phase of the current game round.
 enum GamePhase { betting, rolling, result }
@@ -10,7 +11,7 @@ class GameState {
     this.phase = GamePhase.betting,
     this.diceResults = const [],
     this.bets = const {},
-    this.balance = 1000,
+    this.balance = AppConstants.defaultBalance,
     this.lastWinAmount = 0,
     this.roundNumber = 1,
   });
