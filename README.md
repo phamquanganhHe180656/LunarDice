@@ -1,4 +1,5 @@
 # LunarDice 🎲
+
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
@@ -9,12 +10,11 @@ Built with **Flutter & Dart**, backed by a **Dart/Shelf** server connected to **
 
 ---
 
-## ✨ Tính năng chính
-- 🎮 **Trải nghiệm mượt mà:** UI/UX hiện đại, hiệu ứng lắc xúc xắc sinh động.
-- 📱 **Đa nền tảng:** Chạy tốt trên trình duyệt Web và ứng dụng di động (Android/iOS).
-- 🔐 **Kết nối riêng tư:** Sử dụng Tailscale VPN để kết nối an toàn tới server Raspberry Pi cá nhân.
-- 📊 **Dữ liệu thời gian thực:** Kết nối Websocket giúp cập nhật kết quả đồng bộ cho mọi người chơi.
-
+## ✨ Key Features
+- 🎮 **Smooth Experience:** Modern UI/UX, lively dice shaking effects.
+- 📱 **Multi-Platform:** Runs well on web browsers and mobile apps (Android/iOS).
+- 🔐 **Private Connection:** Uses Tailscale VPN for secure connection to a personal Raspberry Pi server.
+- 📊 **Real-time Data:** Websocket connection provides synchronized results updates for all players.
 ---
 
 ## 🛠 Tech Stack
@@ -113,7 +113,7 @@ See [`backend/README.md`](backend/README.md) for full environment-variable refer
 | Database    | MySQL (`package:mysql_client`)    |
 | Deployment  | Raspberry Pi · Tailscale VPN      |
 
-##📸 Ảnh chụp màn hình
-(Sẽ cập nhật sau khi hoàn thiện UI)
+📸 Screenshot
+(Will be updated after UI is finalized)
 
 Made with ❤️ by [Phạm Quang Anh]
